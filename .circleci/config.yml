@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.0
+
+jobs:
+  build-frontend:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - checkout
+      - run: cd frontend && npm i
+      - run: cd frontend && npm run build
+
+workflows:
+  build:
+    jobs:
+      - build-frontend
