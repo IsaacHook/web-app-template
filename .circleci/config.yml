@@ -9,7 +9,9 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - checkout
-      - run: cd frontend && npm i
+      - run: cd frontend && npm i --dev
+      - run: cd frontend && npm run lint
+      - run: cd frontend && npm run test
       - run: cd frontend && npm run build
 
 workflows:
